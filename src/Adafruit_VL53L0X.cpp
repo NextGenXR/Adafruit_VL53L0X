@@ -34,6 +34,7 @@
 
 #include "Adafruit_VL53L0X.h"
 #include "vl53l0x_api_core.h"
+#include <STMWire.h>
 
 #define VERSION_REQUIRED_MAJOR 1 ///< Required sensor major version
 #define VERSION_REQUIRED_MINOR 0 ///< Required sensor minor version
@@ -54,7 +55,7 @@
     @returns True if device is set up, false on any failure
 */
 /**************************************************************************/
-boolean Adafruit_VL53L0X::begin(uint8_t i2c_addr, boolean debug, TwoWire *i2c,
+boolean Adafruit_VL53L0X::begin(uint8_t i2c_addr, boolean debug, I2C_INTERFACE *i2c,
                                 VL53L0X_Sense_config_t vl_config) {
   uint32_t refSpadCount;
   uint8_t isApertureSpads;

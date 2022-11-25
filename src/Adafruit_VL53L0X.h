@@ -30,7 +30,7 @@
 #endif
 #endif
 
-#ifndef USE_HAL_DRIVER
+#ifdef ARDUINO
 #include "Wire.h"
 #else
 #include <STMWire.h>
@@ -56,7 +56,7 @@ public:
   } VL53L0X_Sense_config_t;
 
   boolean begin(uint8_t i2c_addr = VL53L0X_I2C_ADDR, boolean debug = false,
-                TwoWire *i2c = &Wire,
+                I2C_INTERFACE *i2c = nullptr /* = &Wire */,
                 VL53L0X_Sense_config_t vl_config = VL53L0X_SENSE_DEFAULT);
   boolean setAddress(uint8_t newAddr);
 
