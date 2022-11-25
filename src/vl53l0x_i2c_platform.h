@@ -1,5 +1,10 @@
 #include "Arduino.h"
+
+#ifndef USE_HAL_DRIVER
 #include "Wire.h"
+#else
+#include <STMWire.h>
+#endif
 
 // initialize I2C
 int VL53L0X_i2c_init(TwoWire *i2c);

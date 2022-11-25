@@ -22,13 +22,19 @@
 #ifndef ADAFRUIT_VL53L0X_H
 #define ADAFRUIT_VL53L0X_H
 
+#ifdef ARDUINO
 #if (ARDUINO >= 100)
 #include "Arduino.h"
 #else
 #include "WProgram.h"
 #endif
+#endif
 
+#ifndef USE_HAL_DRIVER
 #include "Wire.h"
+#else
+#include <STMWire.h>
+#endif
 #include "vl53l0x_api.h"
 
 #define VL53L0X_I2C_ADDR 0x29 ///< Default sensor I2C address
