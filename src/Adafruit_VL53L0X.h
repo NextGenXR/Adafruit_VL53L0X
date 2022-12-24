@@ -37,7 +37,9 @@
 #endif
 #include "vl53l0x_api.h"
 
-#define VL53L0X_I2C_ADDR 0x29 ///< Default sensor I2C address
+#ifndef VL53L0X_I2C_ADDR
+#define VL53L0X_I2C_ADDR (0x29) ///< Default sensor I2C address
+#endif
 
 /**************************************************************************/
 /*!
